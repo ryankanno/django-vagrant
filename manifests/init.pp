@@ -4,15 +4,6 @@ node default {
     class { "application": }
 }
 
-stage { "py": before => Stage["main"] }
-class python {
-    package {
-        "python-dev": ensure => "2.7.3-0ubuntu2";
-        "python": ensure => "2.7.3-0ubuntu2";
-        "python-setuptools": ensure => installed;
-    }
-}
-
 stage { "pre": before => Stage["py"] }
 class users {
 
@@ -30,6 +21,7 @@ class users {
         ensure => present,
         gid => "app",
         groups => ["adm", "root"],
+        managehome => true,
         password => '$6$QgrFgGzO$jrmISp8T9vIcKq.DumvXVJcAvcEth7lmLY1EcG.ljkbc3KpU3NEwH8TkQzs4rmUJvsBw5zcUNpWGU4.X84AwB/',
         shell => "/bin/bash",
         require => [Group["app"], Package["libshadow"]]
@@ -52,7 +44,22 @@ class users {
     }
 }
 
+stage { "py": before => Stage["main"] }
+class python {
+    package {
+        "python-dev": ensure => "2.7.3-0ubuntu2";
+        "python": ensure => "2.7.3-0ubuntu2";
+        "python-setuptools": ensure => installed;
+        "python-virtualenv": ensure => installed;
+        "virtualenvwrapper": ensure => installed;
+    }
+}
+
 class application {
+    package {
+        'git-core': ensure => installed;
+        'mercurial': ensure => installed;
+    }
     class { 'nginx': }
     class { 'mysql::python': }
     class { 'mysql::server':
