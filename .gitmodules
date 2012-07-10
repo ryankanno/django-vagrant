@@ -7,3 +7,6 @@
 [submodule "modules/mysql"]
 	path = modules/mysql
 	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "modules/sudoers"]
+	path = modules/sudoers
+	url = https://github.com/windowsrefund/puppet-sudoers.git

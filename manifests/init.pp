@@ -65,4 +65,12 @@ class application {
     class { 'mysql::server':
         config_hash => { 'root_password' => '' }
     }
+
+    # TODO - Need to track down this dependency cycle
+    sudoers::user { django:
+      ensure => present,
+      nopasswd => true,
+      commands => "ALL",
+      require => [User["django"]]
+    }
 }
