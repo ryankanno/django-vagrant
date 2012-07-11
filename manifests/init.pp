@@ -59,6 +59,8 @@ class application {
     package {
         'git-core': ensure => installed;
         'mercurial': ensure => installed;
+        'uwsgi': ensure => installed;
+        'uwsgi-plugin-python': ensure => installed, require => Package["uwsgi"];
     }
     class { 'nginx': }
     class { 'mysql::python': }
