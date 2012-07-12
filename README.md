@@ -10,10 +10,13 @@ around with the Django framework.
 
 ##Features 
 
-* puppet provisioned
+[Puppet](http://puppetlabs.com) provisioned:
+
 * nginx
 * uwsgi
+* mysql 
 * git
+* hg
 * virtualenv
 
 
