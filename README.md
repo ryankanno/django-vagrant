@@ -23,7 +23,6 @@ around with the Django framework.
 ##Install
 
 * `git clone http://github.com/ryankanno/django-vagrant`
-* `vagrant init`
 * `vagrant up`
 * `vagrant provision`
 
