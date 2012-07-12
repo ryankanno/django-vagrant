@@ -25,8 +25,12 @@ around with the Django framework.
 * `git clone http://github.com/ryankanno/django-vagrant`
 * `git submodule update --init`
 * `vagrant up`
-* `vagrant provision`
+* `vagrant provision` (to reset password using libshadow)
 
 To actually dig into the weeds of the box, run the following:
 
 * `vagrant ssh`
+
+##Details
+
+* creates a user (django/django)
