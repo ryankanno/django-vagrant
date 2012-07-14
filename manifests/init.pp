@@ -61,6 +61,7 @@ class application {
         'mercurial': ensure => installed;
         'uwsgi': ensure => installed;
         'uwsgi-plugin-python': ensure => installed, require => Package["uwsgi"];
+        'libmysqlclient-dev': ensure => installed;
     }
     class { 'nginx': }
     class { 'mysql::python': }
