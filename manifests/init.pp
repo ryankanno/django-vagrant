@@ -64,12 +64,10 @@ class application {
         'libmysqlclient-dev': ensure => installed;
     }
     class { 'nginx': }
-    class { 'mysql::python': }
     class { 'mysql::server':
         config_hash => { 'root_password' => '' }
     }
 
-    # TODO - Need to track down this dependency cycle
     sudoers::user { django:
       ensure => present,
       nopasswd => true,
