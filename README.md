@@ -1,6 +1,6 @@
 #Django-Vagrant
 
-This is a Vagrant instance to help you get started with the
+This is a Vagrant Ubuntu instance to help you get started with the
 [Django](https://www.djangoproject.com/) framework. It's been configured to
 work in conjunction with the [fabfile](https://github.com/ryankanno/django-skeleton/blob/master/fabfile.py)
 from [django-skeleton](http://github.com/ryankanno/django-skeleton/).  By
@@ -9,6 +9,8 @@ around with the Django framework.
 
 
 ##Features 
+
+Ubuntu 12.04 LTS
 
 [Puppet](http://puppetlabs.com) provisioned:
 
