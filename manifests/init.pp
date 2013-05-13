@@ -14,8 +14,8 @@ class aptupdate {
 stage { "py": before => Stage["main"] }
 class python {
     package {
-        "python-dev": ensure => "2.7.3-0ubuntu2";
-        "python": ensure => "2.7.3-0ubuntu2";
+        "python-dev": ensure => "installed";
+        "python": ensure => "installed";
         "python-setuptools": ensure => installed;
         "python-virtualenv": ensure => installed;
         "virtualenvwrapper": ensure => installed;
