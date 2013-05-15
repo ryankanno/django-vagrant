@@ -25,7 +25,6 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   config.vm.share_folder "v-data", "/vagrant_data", "data"
   config.vm.share_folder "v-projects", "/home/vagrant/projects", "projects"
-  config.vm.share_folder "v-virtualenvs", "/home/vagrant/.virtualenvs", "envs"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
