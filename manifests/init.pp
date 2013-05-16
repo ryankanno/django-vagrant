@@ -19,6 +19,8 @@ class python {
         "python-setuptools": ensure => installed;
         "python-jinja2": ensure => installed;
         "python-virtualenv": ensure => installed;
+        "libjpeg-dev": ensure => installed;
+        "zlib1g-dev": ensure => installed;
         "virtualenvwrapper": ensure => installed;
     }
 }
