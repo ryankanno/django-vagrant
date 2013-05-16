@@ -54,17 +54,6 @@ def main(project, project_path):
         ],
         stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     migrate.wait()
-    print('Creating superuser: Input admin password when prompted...')
-    createsu = Popen([
-            'python',
-            '{project_path}/myproject/manage.py'.format(project_path=project_path),
-            'createsuperuser',
-        ],
-        stdout=subprocess.PIPE, stdin=subprocess.PIPE,
-    )
-    createsu.stdin.write('admin\n')
-    createsu.stdin.write('admin@example.com\n')
-    createsu.wait()
     print('Initialising CMS...')
     initcms = Popen([
             'python',
@@ -74,7 +63,7 @@ def main(project, project_path):
         stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     initcms.wait()
 
-    print('Your username will be "admin" and password will be the one provided.')
+    print('Your username will be "admin" and password will "admin".')
 
 
 

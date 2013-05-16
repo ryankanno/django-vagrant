@@ -1,9 +1,9 @@
 # your db password
 DATABASE_PASSWORD = ''
 # Used by init_cms command and also cms/notifications.py
-SUPERUSER_USERNAME = '...'
-SUPERUSER_PASSWORD = '...'
-SUPERUSER_EMAIL = '...'
+SUPERUSER_USERNAME = 'admin'
+SUPERUSER_PASSWORD = 'admin'
+SUPERUSER_EMAIL = 'admin@example.com'
 # SMTP settings
 EMAIL_HOST_USER='...'
 EMAIL_HOST_PASSWORD='...'
