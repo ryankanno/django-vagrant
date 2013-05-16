@@ -37,18 +37,20 @@ def main(project, project_path):
     db_create.wait()
     print('Syncing DB...')
     syncdb = Popen([
-        'python',
-        '{project_path}/myproject/manage.py'.format(project_path=project_path),
-        'syncdb',
-        '--noinput',
-    ])
+            'python',
+            '{project_path}/myproject/manage.py'.format(project_path=project_path),
+            'syncdb',
+            '--noinput',
+        ],
+        stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     syncdb.wait()
     print('Migrating fixtures...')
     migrate = Popen([
-        'python',
-        '{project_path}/myproject/manage.py'.format(project_path=project_path),
-        'migrate',
-    ])
+            'python',
+            '{project_path}/myproject/manage.py'.format(project_path=project_path),
+            'migrate',
+        ],
+        stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     migrate.wait()
     print('Creating superuser: Input admin password when prompted...')
     createsu = Popen([
@@ -63,10 +65,11 @@ def main(project, project_path):
     createsu.wait()
     print('Initialising CMS...')
     initcms = Popen([
-        'python',
-        '{project_path}/myproject/manage.py'.format(project_path=project_path),
-        'init_cms',
-    ])
+            'python',
+            '{project_path}/myproject/manage.py'.format(project_path=project_path),
+            'init_cms',
+        ],
+        stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     initcms.wait()
 
     print('Your username will be "admin" and password will be the one provided.')
