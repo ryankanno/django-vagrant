@@ -63,7 +63,7 @@ def main(project, project_path):
         stdout=subprocess.PIPE, stdin=subprocess.PIPE,)
     initcms.wait()
 
-    print('Your username will be "admin" and password will "admin".')
+    print('Your username is be "admin" and password is "admin".')
 
 
 
