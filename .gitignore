@@ -1,3 +1,4 @@
 .vagrant
 projects/
 envs/
+*.pyc
