@@ -17,6 +17,7 @@ class python {
         "python-dev": ensure => "2.7.3-0ubuntu2";
         "python": ensure => "2.7.3-0ubuntu2";
         "python-setuptools": ensure => installed;
+        "python-jinja2": ensure => installed;
         "python-virtualenv": ensure => installed;
         "virtualenvwrapper": ensure => installed;
     }
