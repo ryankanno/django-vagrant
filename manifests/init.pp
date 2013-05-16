@@ -25,6 +25,7 @@ class python {
 class application {
     package {
         'git-core': ensure => installed;
+        'curl': ensure => installed;
         'mercurial': ensure => installed;
         'libmysqlclient-dev': ensure => installed;
     }
