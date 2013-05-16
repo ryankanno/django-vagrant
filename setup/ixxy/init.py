@@ -32,6 +32,8 @@ def main(project, project_path):
     print("Initialising local files for {}".format(project))
     for path in FILES:
         generate(path, project_path)
+    print('Deleting old database...')
+    db_create = mysql('DROP DATABASE {}'.format(project))
     print('Creating database...')
     db_create = mysql('CREATE DATABASE {}  CHARACTER SET utf8'.format(project))
     db_create.wait()
