@@ -27,6 +27,9 @@ echo '|1|Tz5au394l9L9LqO2SEQ8HliWarM=|RDmFpXx3L4tvfgAZ+TazihqaDkQ= ecdsa-sha2-ni
 echo '|1|7PsqXJqxI3SAfxhxkH+9uOKpw5Q=|SDLQJFFOGswUNExsAUmnQeFt+nA= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDfuFY+eDM4/OdGRKZlZ9dZyU8lImckW2oHBX2e2WitbPiCVNP91u2ck4SohxeIdAVMlTLTKGA55ZD/uZ4t37Eo=' >> $HOME/.ssh/known_hosts
 
 echo 'Initialising Django application...'
+if [[ ! -d $HOME/projects ]]; then
+    mkdir $HOME/projects
+fi
 cd $HOME/projects
 
 VIRTUAL_ENV=$HOME/.virtualenvs/$2
@@ -35,7 +38,9 @@ PIP=$VIRTUAL_ENV/bin/pip
 
 if [[ ! -f $VIRTUAL_ENV/bin/python ]]; then
     echo "Creating virtualenv..."
-    mkdir $HOME/.virtualenvs
+    if [[ ! -d $HOME/.virtualenvs ]]; then
+        mkdir $HOME/.virtualenvs
+    fi
     virtualenv $HOME/.virtualenvs/$2 > /dev/null
     echo /home/vagrant/projects/$2 > $VIRTUAL_ENV/.project
     $PIP install distribute jinja2 --upgrade > /dev/null
