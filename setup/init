@@ -51,7 +51,7 @@ if [[ ! -f $VIRTUAL_ENV/bin/python ]]; then
     $PIP install distribute jinja2 --upgrade > /dev/null
 fi
 
-git clone git@codebasehq.com:ixxy/$1/$2.git $HOME/projects/$2 > /dev/null
+git clone git@codebasehq.com:ixxy/$1/$2.git $HOME/projects/$2
 
 echo 'Installing requirements (this may take a long time)...'
 $PIP install -r $HOME/projects/$2/requirements.txt 
