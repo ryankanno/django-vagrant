@@ -49,6 +49,6 @@ fi
 git clone git@codebasehq.com:ixxy/$1/$2.git $HOME/projects/$2 > /dev/null
 
 echo 'Installing requirements (this may take a long time)...'
-pip install -r $HOME/projects/$2/requirements.txt > /dev/null
+pip install -r $HOME/projects/$2/requirements.txt
 cd $HOME/projects/$2
 /setup/ixxy/init.py
