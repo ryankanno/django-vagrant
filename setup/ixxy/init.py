@@ -28,10 +28,7 @@ def generate(path, project_path):
         f.write(data)
 
 
-def main(project, project_path):
-    print "VIRTUALENV IS HERE", os.environ.get('VIRTUAL_ENV')
-    python = os.path.join(os.environ.get('VIRTUAL_ENV', '/usr'), 'bin', 'python')
-    print python
+def main(project, project_path, python='/usr/bin/env python'):
     print("Initialising local files for {}".format(project))
     for path in FILES:
         generate(path, project_path)
@@ -74,5 +71,8 @@ if __name__ == '__main__':
 
     project_path = os.getcwd()
     project = project_path.split('/')[-1]
-
-    main(project, project_path)
+    if len(sys.argv) > 1:
+        python = sys.argv[1]
+    else:
+        exit('Must give python path')
+    main(project, project_path, python)
