@@ -29,6 +29,8 @@ def generate(path, project_path):
 
 
 def main(project, project_path):
+    python = '/usr/bin/env python'
+    print python
     print("Initialising local files for {}".format(project))
     for path in FILES:
         generate(path, project_path)
@@ -39,7 +41,7 @@ def main(project, project_path):
     db_create.wait()
     print('Syncing DB...')
     syncdb = Popen([
-            'python',
+            python,
             '{project_path}/myproject/manage.py'.format(project_path=project_path),
             'syncdb',
             '--noinput',
@@ -48,7 +50,7 @@ def main(project, project_path):
     syncdb.wait()
     print('Migrating fixtures...')
     migrate = Popen([
-            'python',
+            python,
             '{project_path}/myproject/manage.py'.format(project_path=project_path),
             'migrate',
         ],
@@ -56,7 +58,7 @@ def main(project, project_path):
     migrate.wait()
     print('Initialising CMS...')
     initcms = Popen([
-            'python',
+            python,
             '{project_path}/myproject/manage.py'.format(project_path=project_path),
             'init_cms',
         ],
