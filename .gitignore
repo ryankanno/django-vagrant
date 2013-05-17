@@ -2,3 +2,5 @@
 projects/
 envs/
 *.pyc
+setup/id_rsa
+setup/id_rsa.pub
