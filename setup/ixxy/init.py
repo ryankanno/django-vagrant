@@ -33,7 +33,8 @@ def main(project, project_path, python='/usr/bin/env python'):
     for path in FILES:
         generate(path, project_path)
     print('Deleting old database...')
-    db_create = mysql('DROP DATABASE {}'.format(project))
+    db_drop = mysql('DROP DATABASE {}'.format(project))
+    db_drop.wait()
     print('Creating database...')
     db_create = mysql('CREATE DATABASE {}  CHARACTER SET utf8'.format(project))
     db_create.wait()
