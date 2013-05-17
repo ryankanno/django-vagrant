@@ -7,13 +7,18 @@ if [[ "$2" = "" ]]; then
     echo 'You must set the repo name.'
 fi
 
-if [[ ! -f $HOME/.ssh/id_rsa.pub ]]; then
+if [[ ! -f /setup/id_rsa.pub ]]; then
     echo 'Generating SSH key - you should be ok to hit enter for most of these options...'
     ssh-keygen
     echo 'Generated SSH key. Printing out PUBLIC key to paste into GitHub/Codebase:'
+    cp $HOME/.ssh/id_rsa /setup/
+    cp $HOME/.ssh/id_rsa.pub /setup/
+
 else
     echo 'SSH key already exists. Printing out PUBLIC key to paste into GitHub/Codebase:'
 fi
+cp /setup/id_rsa $HOME/.ssh
+cp /setup/id_rsa.pub $HOME/.ssh
 echo '========== COPY BETWEEN THESE LINES ========='
 cat $HOME/.ssh/id_rsa.pub
 echo '========== COPY BETWEEN THESE LINES ========='
@@ -49,6 +54,6 @@ fi
 git clone git@codebasehq.com:ixxy/$1/$2.git $HOME/projects/$2 > /dev/null
 
 echo 'Installing requirements (this may take a long time)...'
-$PIP install -r $HOME/projects/$2/requirements.txt -q
+$PIP install -r $HOME/projects/$2/requirements.txt 
 cd $HOME/projects/$2
 $PYTHON /setup/ixxy/init.py $PYTHON
