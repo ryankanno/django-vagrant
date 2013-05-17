@@ -29,7 +29,8 @@ def generate(path, project_path):
 
 
 def main(project, project_path):
-    python = '/usr/bin/env python'
+    print "VIRTUALENV IS HERE", os.environ.get('VIRTUAL_ENV')
+    python = os.path.join(os.environ.get('VIRTUAL_ENV', '/usr'), 'bin', 'python')
     print python
     print("Initialising local files for {}".format(project))
     for path in FILES:
