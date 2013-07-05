@@ -1,12 +1,19 @@
 node default {
+    class { "aptupdate": stage => "aptupdate" }
     class { "users": stage => "pre" }
     class { "python": stage => "py" }
     class { "application": }
 }
 
+stage { "aptupdate": before => Stage["pre"] }
+class aptupdate {
+    exec { 'apt-get update':
+        command => '/usr/bin/apt-get update'
+    }
+}
+
 stage { "pre": before => Stage["py"] }
 class users {
-
     package { 
         'build-essential': ensure => latest;
         'libshadow': ensure => latest, provider => 'gem', require => Package["build-essential"];
