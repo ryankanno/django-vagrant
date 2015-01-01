@@ -1,6 +1,6 @@
 [submodule "modules/nginx"]
 	path = modules/nginx
-	url = https://github.com/puppetlabs/puppetlabs-nginx
+	url = https://github.com/ezarko/puppetlabs-nginx
 [submodule "modules/stdlib"]
 	path = modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
